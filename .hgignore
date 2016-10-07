@@ -1,0 +1,24 @@
+syntax: glob
+*~
+*.pyc
+*.pyo
+*.o
+*.la
+*.lo
+*.gch
+a.out
+*.pfd
+*.elf
+*.test
+*.pdf
+*.tif
+*.pp3
+*.sublime-project
+*.sublime-workspace
+.*.swp
+.libs
+
+./agro_layout/test_data/*
+
+syntax: regexp
+.*\#.*\#$
