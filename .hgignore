@@ -17,8 +17,8 @@ a.out
 *.sublime-workspace
 .*.swp
 .libs
-
-./agro_layout/test_data/*
+dist/
+*.egg-info/
 
 syntax: regexp
 .*\#.*\#$
