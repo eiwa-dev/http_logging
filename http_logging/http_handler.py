@@ -95,7 +95,7 @@ class FormattedHTTPHandler(logging.Handler):
             data = urllib.parse.urlencode(mrecord).encode('utf-8')
             _req = urllib.request.Request(self._stripped_url, data)
             with self._opener(_req) as req:
-                print(req.read()) # discard data
+                req.read() # discard data
         except Exception:
             self.handleError(record)
 

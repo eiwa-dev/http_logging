@@ -5,7 +5,7 @@ def readme():
         return f.read()
 
 setup(name='http_logging',
-      version='0.1',
+      version='0.2',
       description='Better HTTP Log Handler',
       long_description=readme(),
       classifiers=[
