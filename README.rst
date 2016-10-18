@@ -15,7 +15,9 @@ It also tries to format the log record a bit more intelligently.
 Features
 --------
 
-TODO: test if it works with https and with user:pass@ in front of hostname.
+* Supports HTTPS
+* Supports Basic Authentication
+* User and password are specified using user:pass@host.domain
 
 ---------------------
 HTTP-to-Syslog bridge
@@ -28,7 +30,7 @@ Key Features
 ------------
 
 * Messages are forwarded almost unmodified to syslog.
-* No https or auth whatsoever. Handle that with a real proxying server.
+* No https or auth whatsoever. Handle that with a real proxy server.
 
 Usage
 -----
