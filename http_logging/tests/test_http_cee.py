@@ -3,16 +3,18 @@ import argparse
 import logging
 
 from cee_formatter import CEEFormatter
-from http_handler import FormattedHTTPHandler
+from ..http_handler import FormattedHTTPHandler
 
 opt_parser = argparse.ArgumentParser(
                 description = "POST a logging message to syslog bridge)")
+opt_parser.add_argument("--unsecure", help = "Don't validate SSL certificates",
+                        default = False, action="store_true")
 opt_parser.add_argument("url", help = "syslog server address or hostname")
 opt_parser.add_argument("message", help = "syslog facility")
 
 args = opt_parser.parse_args()
 
-handler = FormattedHTTPHandler(args.url)
+handler = FormattedHTTPHandler(args.url, not args.unsecure)
 fmt = CEEFormatter()
 handler.setFormatter(fmt)
 
