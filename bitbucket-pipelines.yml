@@ -6,13 +6,14 @@
 image: python:3.5.1
 
 pipelines:
-  default:
-    - step:
-        script: # Modify the commands below to build your repository.
-          - pip install -U devpi-client
-          - PYPI_URL="https://$PYPI_SERVER_LOGIN@$PYPI_SERVER/"
-          - echo "${PYPI_URL}"
-          - devpi use "${PYPI_URL}"
-          - devpi login $DEVPI_USER --password "$DEVPI_PASS"
-          - devpi use $DEVPI_INDEX
-          - devpi upload --no-vcs
+  branches:
+    default:
+      - step:
+          script: # Modify the commands below to build your repository.
+            - pip install -U devpi-client
+            - PYPI_URL="https://$PYPI_SERVER_LOGIN@$PYPI_SERVER/"
+            - echo "${PYPI_URL}"
+            - devpi use "${PYPI_URL}"
+            - devpi login $DEVPI_USER --password "$DEVPI_PASS"
+            - devpi use $DEVPI_INDEX
+            - devpi upload --no-vcs
