@@ -10,6 +10,7 @@ pipelines:
     default:
       - step:
           script: # Modify the commands below to build your repository.
+            - python -m pip install -U pip
             - pip install -U devpi-client
             - PYPI_URL="https://$PYPI_SERVER_LOGIN@$PYPI_SERVER/"
             - echo "${PYPI_URL}"
@@ -19,7 +20,7 @@ pipelines:
             - devpi upload --no-vcs
             - echo "Push to git repo"
             - pip install -U mercurial hg-git
-            - echo "[extensions]\nhgext.bookmarks =\nhggit = " >> ~/.hgrc
+            - echo "[extensions]\nhgext.bookmarks =\nhggit = " >> .hg/hgrc
             - mkdir -p ~/.ssh
             - echo $OTHER_REPO_FINGERPRINTS_b64 | base64 -d >> ~/.ssh/known_hosts
             - echo >> ~/.ssh/known_hosts
